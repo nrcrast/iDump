@@ -1,0 +1,50 @@
+{
+  "name": "i-dump",
+  "version": "0.0.0",
+  "description": "CLI tool to dump music from iPod",
+  "engines": {
+    "node": ">= 16.13 <17"
+  },
+  "devDependencies": {
+    "@types/jest": "~27.5",
+    "@types/node": "~16",
+    "@typescript-eslint/eslint-plugin": "~5.26",
+    "@typescript-eslint/parser": "~5.26",
+    "eslint": "~8.16",
+    "eslint-config-prettier": "~8.5",
+    "eslint-plugin-jest": "~26.2",
+    "jest": "~28.1",
+    "prettier": "~2.6",
+    "rimraf": "~3.0",
+    "ts-jest": "~28.0",
+    "tsutils": "~3.21",
+    "typescript": "~4.7"
+  },
+  "scripts": {
+    "start": "node build/src/main.js",
+    "start:dev": "node --inspect -r ts-node/register src/main.ts",
+    "clean": "rimraf coverage build tmp",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lint": "eslint . --ext .ts --ext .mts",
+    "test": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch"
+  },
+  "author": "Nick Crast <nrcrast@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "drivelist": "^11.0.0",
+    "mkdirp": "^1.0.4",
+    "music-metadata": "^7.12.5",
+    "recursive-readdir": "^2.2.2",
+    "sanitize-filename": "^1.6.3",
+    "ts-node": "^10.9.1",
+    "tslib": "~2.4"
+  },
+  "volta": {
+    "node": "16.13.0"
+  }
+}
